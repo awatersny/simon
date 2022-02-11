@@ -32,6 +32,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: serif;
   font-size: 150px;
   margin: 0;
 }
@@ -42,7 +43,7 @@ body {
 }
 
 #s{
-  color: #0f0;
+  color: #0d0;
 }
 
 #i{
@@ -70,8 +71,47 @@ body {
 }
 
 #board {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  grid-template-rows: 45% 45%;
   background-color: #000;
   height: 100%;
   width: 70%;
-  border-radius: 50%;
+  gap: 10%;
 }
+
+#start-reset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#start-reset > button{
+  width: 10%;
+}
+
+#green {
+  /*On state #0f0*/
+  background-color: #070;
+  border-color: #050;
+}
+
+#red {
+
+  /*On state #0f0*/
+  background-color: #700;
+  border-color: #500;
+}
+
+#yellow {
+  /*On state #0f0*/
+  background-color: #770;
+  border-color: #550;
+}
+
+#blue {
+  /*On state #0f0*/
+  background-color: #007;
+  border-color: #007;
+}
+
