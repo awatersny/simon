@@ -1,13 +1,12 @@
 /*----------------------------------------Constants------------------------------------------*/
-// Array containing a sequence for the player to memorize:
-// This array will have a random number from 0-3 pushed into it at the beginning of each turn.
-const compSequence = [];
-
-// Array containing a sequence corresponding to player input:
-// This array will contain a value from 0-3 corresponding with the element clicked by the player.
-const playerSequence = [];
 
 /*----------------------------------------Variables------------------------------------------*/
+// Array containing a sequence for the player to memorize:
+// This array will have a random number from 0-3 pushed into it at the beginning of each turn.
+let compSequence = [];
+// Array containing a sequence corresponding to player input:
+// This array will contain a value from 0-3 corresponding with the element clicked by the player.
+let playerSequence = [];
 // Score: Increments each time the two arrays are congruent.
 let score = 0;
 // High Score: Increments when score is greater than or equal to it.
@@ -44,6 +43,8 @@ resetBtn.addEventListener("click", testEvent);
 function init(){
   score = 0;
   turn = 0;
+  comSequence = [];
+  playerSequence = [];
   render();
 }
 
@@ -56,6 +57,7 @@ function render() {
     startBtn.removeAttribute("hidden");
   }
 }
+
 init();
 
 // Temporary test function to be deleted.
