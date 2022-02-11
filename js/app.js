@@ -30,7 +30,7 @@ const resetBtn = document.getElementById("reset");
 const scoreDisplay = document.getElementById("score");
 
 /*------------------------------------Event Listeners----------------------------------------*/
-board.addEventListener("click", testEvent); //Note: if evt.target.id === board, nothing should happen.
+board.addEventListener("click", inputSequence); //Note: if evt.target.id === board, nothing should happen.
 startBtn.addEventListener("click", playGame);
 resetBtn.addEventListener("click", init);
 
@@ -49,19 +49,55 @@ function init(){
 // Four elements light up (change to a lighter hue of their color: start with 0.5 seconds) in random order, but the sequences should be stored.
 function playGame() {
   turn = -1;
+  // Do
   // Com plays sequence
   comSequence.push(Math.floor(Math.random() * 4))
+  testVals();
   // Player enters sequence
-  matchSequence();
+  turn = 1;
   // Repeat process until turn === 0
   render();
   console.log(turn);
   console.log(comSequence);
 }
 
+function inputSequence(evt){
+  // buttons should be pressed only on player turn
+  if(!turn) {
+    return;
+  }
+  // Take player input
+  /**
+   * green: 0
+   * red: 1
+   * yellow: 2
+   * blue: 3
+   */
+  if(evt.target.id === "green"){
+    playerSequence.push(0);
+  } else if(evt.target.id === "red"){
+    playerSequence.push(1);
+  } else if(evt.target.id === "yellow"){
+    playerSequence.push(2);
+  } else if(evt.target.id === "blue"){
+    playerSequence.push(3);
+  }
+  testVals();
+}
+
 // This function will allow player input and set turn to 0 if playerSequence doesn't match comSequence
 function matchSequence() {
-
+  while(playerSequence.length < comSequence.length) {
+  }
+  // Allow the game to continue if the arrays match.
+  turn = -1;
+  // compare sequence arrays
+  comSequence.forEach((color, idx) => {
+    if(playerSequence[idx] !== color){
+      // This value will end the game.
+      turn = 0;
+    }
+  });
 }
 
 function render() {
@@ -78,8 +114,15 @@ function render() {
 function renderLights(evt) {}
 
 init();
+testVals();
 
-// Temporary test function to be deleted.
+// Temporary test functions to be deleted.
 function testEvent(evt){
   console.log(evt.target.id);
+}
+
+function testVals(){
+  console.log(turn);
+  console.log(comSequence);
+  console.log(playerSequence);
 }
