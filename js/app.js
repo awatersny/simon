@@ -3,7 +3,7 @@
 /*----------------------------------------Variables------------------------------------------*/
 // Array containing a sequence for the player to memorize:
 // This array will have a random number from 0-3 pushed into it at the beginning of each turn.
-let compSequence = [];
+let comSequence = [];
 // Array containing a sequence corresponding to player input:
 // This array will contain a value from 0-3 corresponding with the element clicked by the player.
 let playerSequence = [];
@@ -31,21 +31,37 @@ const scoreDisplay = document.getElementById("score");
 
 /*------------------------------------Event Listeners----------------------------------------*/
 board.addEventListener("click", testEvent); //Note: if evt.target.id === board, nothing should happen.
-startBtn.addEventListener("click", testEvent);
-resetBtn.addEventListener("click", testEvent);
+startBtn.addEventListener("click", playGame);
+resetBtn.addEventListener("click", init);
 
 /*---------------------------------------Functions-------------------------------------------*/
-// Sequences should start when the player presses a start button.
-// Four elements light up (change to a lighter hue of their color: start with 0.5 seconds) in random order, but the sequences should be stored.
-// The player should be able to reset the game at any time.
-
 // Initial state
+// The player should be able to reset the game at any time.
 function init(){
   score = 0;
   turn = 0;
   comSequence = [];
   playerSequence = [];
   render();
+}
+
+// Sequences should start when the player presses a start button.
+// Four elements light up (change to a lighter hue of their color: start with 0.5 seconds) in random order, but the sequences should be stored.
+function playGame() {
+  turn = -1;
+  // Com plays sequence
+  comSequence.push(Math.floor(Math.random() * 4))
+  // Player enters sequence
+  matchSequence();
+  // Repeat process until turn === 0
+  render();
+  console.log(turn);
+  console.log(comSequence);
+}
+
+// This function will allow player input and set turn to 0 if playerSequence doesn't match comSequence
+function matchSequence() {
+
 }
 
 function render() {
@@ -57,6 +73,9 @@ function render() {
     startBtn.removeAttribute("hidden");
   }
 }
+
+//Map values in sequenceArray to light up buttons
+function renderLights(evt) {}
 
 init();
 
