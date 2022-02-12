@@ -43,19 +43,22 @@ function init(){
   comSequence = [];
   playerSequence = [];
   render();
+  turn = -1;
   testVals();
 }
 
 // First sequence should start when the player presses a start button.
 // Four elements light up (change to a lighter hue of their color: start with 0.5 seconds) in random order, but the sequences should be stored.
 function comTurn() {
-  turn = -1;
+  if(turn !== -1) {
+    return;
+  }
   // Com plays sequence
   comSequence.push(Math.floor(Math.random() * 4))
   render();
   // Allow player to enter sequence.
   turn = 1;
-  testVals();
+  console.log("com: ", comSequence)
 }
 
 function inputSequence(evt){
@@ -80,26 +83,35 @@ function inputSequence(evt){
     } else if(evt.target.id === "blue"){
       playerSequence.push(3);
     }
-  } else {
-    matchSequence();
   }
+  console.log(`------------------------------------------------------------------------------------\nPressed: ${evt.target.id}`)
+  console.log("plr: ", playerSequence);
+  console.log(`------------------------------------------------------------------------------------\n`)
+  matchSequence();
+  console.log("turn", turn);
 }
 
 // This function will allow player input and set turn to 0 if playerSequence doesn't match comSequence
 function matchSequence() {
   // compare sequence arrays
-  comSequence.forEach((color, idx) => {
-    if(playerSequence[idx] !== color){
+  playerSequence.forEach((color, idx) => {
+    if(comSequence[idx] !== color){
       // This value will end the game.
       turn = 0;
-    } else {
-      score++;
-      hiScore = score > hiScore ? score : hiScore;
-      // Allow the game to continue.
-      turn = -1;
     }
   });
-  testVals();
+  if (turn === 0){
+    return;
+  }
+  if(playerSequence.length === comSequence.length){
+    turn = -1;
+    score++;
+    hiScore = score > hiScore ? score : hiScore;
+    // Reset player sequence
+    playerSequence = [];
+    testVals();
+    comTurn();
+  }
 }
 
 function render() {
@@ -112,7 +124,7 @@ function render() {
   }
 }
 
-//Map values in sequenceArray to light up buttons
+//Map values in playerArray to light up buttons
 function renderLights(evt) {}
 
 init();
