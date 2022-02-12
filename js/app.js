@@ -69,10 +69,15 @@ function comTurn() {
     console.log(comSequence[renderIdx]);
 
     //Flash the light at the current index
-    blinkLight("green");
-    blinkLight("red");
-    blinkLight("yellow");
-    blinkLight("blue");
+    if(comSequence[renderIdx] === 0){
+      blinkLight("green");
+    } else if(comSequence[renderIdx] === 1){
+      blinkLight("red");
+    } else if(comSequence[renderIdx] === 2){
+      blinkLight("yellow");
+    } else if(comSequence[renderIdx] === 3){
+      blinkLight("blue");
+    }
 
     renderIdx++;
     if(renderIdx === comSequence.length || turn === 0){
