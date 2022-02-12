@@ -87,13 +87,16 @@ function inputSequence(evt){
 
 // This function will allow player input and set turn to 0 if playerSequence doesn't match comSequence
 function matchSequence() {
-  // Allow the game to continue if the arrays match.
-  turn = -1;
   // compare sequence arrays
   comSequence.forEach((color, idx) => {
     if(playerSequence[idx] !== color){
       // This value will end the game.
       turn = 0;
+    } else {
+      score++;
+      hiScore = score > hiScore ? score : hiScore;
+      // Allow the game to continue.
+      turn = -1;
     }
   });
   testVals();
@@ -120,9 +123,9 @@ function testEvent(evt){
 }
 
 function testVals(){
-  console.log("scor: ", score);
-  console.log("hisc: ", hiScore);
-  console.log("comp: ", comSequence);
-  console.log("plyr: ", playerSequence);
-  console.log("turn: ", turn);
+  console.log("score : ", score);
+  console.log("hiscr : ", hiScore);
+  console.log("cmptr : ", comSequence);
+  console.log("plyr  : ", playerSequence);
+  console.log("turn  : ", turn);
 }
