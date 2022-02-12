@@ -43,6 +43,7 @@ function init(){
   comSequence = [];
   playerSequence = [];
   render();
+  testVals();
 }
 
 // First sequence should start when the player presses a start button.
@@ -59,7 +60,7 @@ function comTurn() {
 
 function inputSequence(evt){
   // buttons should be pressed only on player turn
-  if(turn != 1) {
+  if(turn !== 1) {
     return;
   }
   // Take player input
@@ -79,6 +80,8 @@ function inputSequence(evt){
     } else if(evt.target.id === "blue"){
       playerSequence.push(3);
     }
+  } else {
+    matchSequence();
   }
 }
 
@@ -93,6 +96,7 @@ function matchSequence() {
       turn = 0;
     }
   });
+  testVals();
 }
 
 function render() {
@@ -109,7 +113,6 @@ function render() {
 function renderLights(evt) {}
 
 init();
-testVals();
 
 // Temporary test functions to be deleted.
 function testEvent(evt){
@@ -117,7 +120,9 @@ function testEvent(evt){
 }
 
 function testVals(){
-  console.log(turn);
-  console.log(comSequence);
-  console.log(playerSequence);
+  console.log("scor: ", score);
+  console.log("hisc: ", hiScore);
+  console.log("comp: ", comSequence);
+  console.log("plyr: ", playerSequence);
+  console.log("turn: ", turn);
 }
