@@ -101,27 +101,42 @@ span {
 }
 
 #green {
-  /*On state #0f0*/
   background-color: #070;
   border-color: #050;
 }
 
-#red {
+/* #green:hover {
+  background-color: #0f0;
+  border-color: #070;
+} */
 
-  /*On state #0f0*/
+#red {
   background-color: #700;
   border-color: #500;
 }
 
+/* #red:hover {
+  background-color: #f00;
+  border-color: #700;
+} */
+
 #yellow {
-  /*On state #0f0*/
   background-color: #770;
   border-color: #550;
 }
 
+/* #yellow:hover {
+  background-color: #ff0;
+  border-color: #770;
+} */
+
 #blue {
-  /*On state #0f0*/
   background-color: #007;
-  border-color: #007;
+  border-color: #005;
 }
+
+/* #blue:hover {
+  background-color: #00f;
+  border-color: #007;
+} */
 
