@@ -50,7 +50,7 @@ function init(){
   playerSequence = [];
   render();
   turn = -1;
-  // testVals();
+  testVals();
 }
 
 // First sequence should start when the player presses a start button.
@@ -107,9 +107,6 @@ function inputSequence(evt){
       playerSequence.push(cVal);
     }
   }
-  // console.log(`------------------------------------------------------------------------------------`)
-  // console.log("plr: ", playerSequence);
-  // console.log(`------------------------------------------------------------------------------------\n`)
   matchSequence();
   console.log("turn", turn);
 }
@@ -144,6 +141,8 @@ function render() {
     resetBtn.setAttribute("hidden", true);
     startBtn.removeAttribute("hidden");
   }
+  scoreDisplay.textContent = score;
+  hiScoreDisplay.textContent = hiScore;
 }
 
 /**
