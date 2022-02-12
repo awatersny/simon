@@ -13,6 +13,10 @@ let score = 0;
 let hiScore = 0;
 // Turn: -1 for computer and 1 for player. 0 if game is not in session
 let turn = 0;
+// Time it takes for computer to play sequence
+let playerWait = 0;
+// Keep track of which board to light up during com sequence
+let renderIdx = 0;
 
 /*--------------------------------Cached Element References----------------------------------*/
 // Status message
@@ -40,11 +44,13 @@ resetBtn.addEventListener("click", init);
 function init(){
   score = 0;
   turn = 0;
+  playerWait = 0;
+  renderIdx = 0;
   comSequence = [];
   playerSequence = [];
   render();
   turn = -1;
-  testVals();
+  // testVals();
 }
 
 // First sequence should start when the player presses a start button.
@@ -53,12 +59,24 @@ function comTurn() {
   if(turn !== -1) {
     return;
   }
-  // Com plays sequence
-  comSequence.push(Math.floor(Math.random() * 4))
+  playerWait += 500;
+  renderIdx = 0;
   render();
+  comSequence.push(Math.floor(Math.random() * 4))
+  // Com plays sequence
+  const playSequence = setInterval(() => {
+    console.log(comSequence[renderIdx]);
+    renderIdx++;
+    if(renderIdx === comSequence.length){
+      clearInterval(playSequence);
+    }
+  }, 1000);
+
   // Allow player to enter sequence.
+  // setTimeout(() => {
+
+  // }, playerWait);
   turn = 1;
-  console.log("com: ", comSequence)
 }
 
 function inputSequence(evt){
@@ -74,39 +92,24 @@ function inputSequence(evt){
    * blue: 3
    */
   if(playerSequence.length < comSequence.length) {
+    blinkLight(evt.target.id);
     if(evt.target.id === "green"){
       let cVal = 0;
-      renderLightState(cVal, "#0f0", "070");
-      setTimeout(() => {
-        renderLightState(cVal, "#070", "050");
-      }, 250);
       playerSequence.push(cVal);
     } else if(evt.target.id === "red"){
       let cVal = 1;
-      renderLightState(cVal, "#f00", "700");
-      setTimeout(() => {
-        renderLightState(cVal, "#700", "500");
-      }, 250);
       playerSequence.push(cVal);
     } else if(evt.target.id === "yellow"){
       let cVal = 2;
-      renderLightState(cVal, "#ff0", "770");
-      setTimeout(() => {
-        renderLightState(cVal, "#770", "550");
-      }, 250);
       playerSequence.push(cVal);
     } else if(evt.target.id === "blue"){
       let cVal = 3;
-      renderLightState(cVal, "#00f", "007");
-      setTimeout(() => {
-        renderLightState(cVal, "#007", "005");
-      }, 250);
       playerSequence.push(cVal);
     }
   }
-  console.log(`------------------------------------------------------------------------------------\nPressed: ${evt.target.id}`)
-  console.log("plr: ", playerSequence);
-  console.log(`------------------------------------------------------------------------------------\n`)
+  // console.log(`------------------------------------------------------------------------------------`)
+  // console.log("plr: ", playerSequence);
+  // console.log(`------------------------------------------------------------------------------------\n`)
   matchSequence();
   console.log("turn", turn);
 }
@@ -129,7 +132,6 @@ function matchSequence() {
     hiScore = score > hiScore ? score : hiScore;
     // Reset player sequence
     playerSequence = [];
-    testVals();
     comTurn();
   }
 }
@@ -162,35 +164,41 @@ function renderLightState(colorIdx, color1, color2) {
   colorBtns[colorIdx].style.borderColor = color2;
 }
 
-/**
- * ON:
- * green: color1:#0f0  color2:#070
- * red": color1:#f00  color2:#700
- * yellow: color1:#ff0  color2:#770
- * blue: color1:#00f  color2:#007
- * 
- * OFF:
- * green: color1:#070  color2:#050
- * red": color1:#700  color2:#500
- * yellow: color1:#770  color2:#550
- * blue: color1:#007  color2:#005
- */
-function blinkLight(colorIdx, color1, color2, duration){
-  // Turn light on
-  renderLightState(colorIdx, color1, color2);
-  // Wait for duration
-  setTimeout(() => {
+function blinkLight(color){
+  if(color === "green"){
+    let cVal = 0;
+    renderLightState(cVal, "#0f0", "070");
+    setTimeout(() => {
+      renderLightState(cVal, "#070", "050");
+    }, 250);
 
-  }, duration);
+  } else if(color === "red"){
+    let cVal = 1;
+    renderLightState(cVal, "#f00", "700");
+    setTimeout(() => {
+      renderLightState(cVal, "#700", "500");
+    }, 250);
+
+  } else if(color === "yellow"){
+    let cVal = 2;
+    renderLightState(cVal, "#ff0", "770");
+    setTimeout(() => {
+      renderLightState(cVal, "#770", "550");
+    }, 250);
+
+  } else if(color === "blue"){
+    let cVal = 3;
+    renderLightState(cVal, "#00f", "007");
+    setTimeout(() => {
+      renderLightState(cVal, "#007", "005");
+    }, 250);
+
+  }
 }
 
 init();
 
 // Temporary test functions to be deleted.
-function testEvent(evt){
-  console.log(evt.target.id);
-}
-
 function testVals(){
   console.log("score : ", score);
   console.log("hiscr : ", hiScore);
