@@ -59,7 +59,7 @@ function comTurn() {
   if(turn !== -1) {
     return;
   }
-  playerWait += 500;
+  playerWait += 1000;
   renderIdx = 0;
   render();
   comSequence.push(Math.floor(Math.random() * 4))
@@ -73,10 +73,10 @@ function comTurn() {
   }, 1000);
 
   // Allow player to enter sequence.
-  // setTimeout(() => {
-
-  // }, playerWait);
-  turn = 1;
+  setTimeout(() => {
+    turn = 1;
+    render();
+  }, playerWait);
 }
 
 function inputSequence(evt){
@@ -121,6 +121,7 @@ function matchSequence() {
     }
   });
   if (turn === 0){
+    renderGameOver();
     return;
   }
   if(playerSequence.length === comSequence.length){
@@ -137,12 +138,18 @@ function render() {
   if(turn) {
     startBtn.setAttribute("hidden", true);
     resetBtn.removeAttribute("hidden");
+    statusMsg.textContent = turn === 1 ? `Your turn` : `Watch carefully`
   } else {
     resetBtn.setAttribute("hidden", true);
     startBtn.removeAttribute("hidden");
+    statusMsg.textContent = `Press Start to begin.`
   }
   scoreDisplay.textContent = score;
   hiScoreDisplay.textContent = hiScore;
+}
+
+function renderGameOver() {
+  statusMsg.textContent = `Game Over.`
 }
 
 /**
@@ -199,8 +206,6 @@ init();
 
 // Temporary test functions to be deleted.
 function testVals(){
-  console.log("score : ", score);
-  console.log("hiscr : ", hiScore);
   console.log("cmptr : ", comSequence);
   console.log("plyr  : ", playerSequence);
   console.log("turn  : ", turn);
