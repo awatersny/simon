@@ -21,7 +21,7 @@ const statusMsg = document.getElementById("status");
 const hiScoreDisplay = document.getElementById("hi-score");
 // 4 clickable elements of different colors
 const board = document.getElementById("board");
-const colorBtns = document.querySelectorAll("board-button");
+const colorBtns = document.querySelectorAll(".board-button");
 // A start button
 const startBtn = document.getElementById("start");
 // A reset button
@@ -75,13 +75,17 @@ function inputSequence(evt){
    */
   if(playerSequence.length < comSequence.length) {
     if(evt.target.id === "green"){
-      playerSequence.push(0);
+      let cVal = 0;
+      playerSequence.push(cVal);
     } else if(evt.target.id === "red"){
-      playerSequence.push(1);
+      let cVal = 1;
+      playerSequence.push(cVal);
     } else if(evt.target.id === "yellow"){
-      playerSequence.push(2);
+      let cVal = 2;
+      playerSequence.push(cVal);
     } else if(evt.target.id === "blue"){
-      playerSequence.push(3);
+      let cVal = 3;
+      playerSequence.push(cVal);
     }
   }
   console.log(`------------------------------------------------------------------------------------\nPressed: ${evt.target.id}`)
@@ -124,8 +128,23 @@ function render() {
   }
 }
 
-//Map values in playerArray to light up buttons
-function renderLights(evt) {}
+/**
+ * ON:
+ * green: color1:#0f0  color2:#070
+ * red": color1:#f00  color2:#700
+ * yellow: color1:#ff0  color2:#770
+ * blue: color1:#00f  color2:#007
+ * 
+ * OFF:
+ * green: color1:#070  color2:#050
+ * red": color1:#700  color2:#500
+ * yellow: color1:#770  color2:#550
+ * blue: color1:#007  color2:#005
+ */
+function renderLightState(colorIdx, color1, color2) {
+  colorBtns[colorIdx].style.backgroundColor = color1;
+  colorBtns[colorIdx].style.borderColor = color2;
+}
 
 init();
 
