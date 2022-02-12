@@ -59,7 +59,7 @@ function comTurn() {
 
 function inputSequence(evt){
   // buttons should be pressed only on player turn
-  if(!turn) {
+  if(turn != 1) {
     return;
   }
   // Take player input
@@ -80,7 +80,6 @@ function inputSequence(evt){
       playerSequence.push(3);
     }
   }
-  testVals();
 }
 
 // This function will allow player input and set turn to 0 if playerSequence doesn't match comSequence
