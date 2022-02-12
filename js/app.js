@@ -59,7 +59,7 @@ function comTurn() {
   if(turn !== -1) {
     return;
   }
-  let interval = 1000;
+  let interval = 800;
   playerWait += interval;
   renderIdx = 0;
   render();
@@ -75,7 +75,7 @@ function comTurn() {
     blinkLight("blue");
 
     renderIdx++;
-    if(renderIdx === comSequence.length){
+    if(renderIdx === comSequence.length || turn === 0){
       clearInterval(playSequence);
     }
   }, interval);
