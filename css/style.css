@@ -25,6 +25,7 @@ body {
   margin: 0;
   min-height: 100vh;
   height: 100vh;
+  width: 100vw;
 }
 
 span {
@@ -38,16 +39,16 @@ span {
   /* font-size: 20px; */
 }
 
-.board-button {
+/* .board-button {
   margin: 1rem 0 0 1rem;
-}
+} */
 
 #title {
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: serif;
-  font-size: 150px;
+  font-size: 15rem;
   margin: 0;
 }
 
@@ -78,20 +79,22 @@ span {
 
 #board-container {
   background-color: #ddd;
-  height: 40rem;
+  height: 50rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #board {
+  padding: 3.5rem 0 0 3.5rem;
   display: grid;
-  grid-template-columns: 19rem 19rem;
-  grid-template-rows: 19rem 19rem;
+  grid-template-columns: 20rem 20rem;
+  grid-template-rows: 20rem 20rem;
   background-color: #000;
-  height: 40rem;
-  width: 40rem;
-  gap: 1rem;
+  height: 50rem;
+  width: 50rem;
+  gap: 3rem;
+  border-radius: 50%;
 }
 
 #start-reset {
@@ -107,6 +110,7 @@ span {
 #green {
   background-color: #070;
   border-color: #050;
+  border-top-left-radius: 100%;
 }
 
 /* #green:hover {
@@ -117,6 +121,7 @@ span {
 #red {
   background-color: #700;
   border-color: #500;
+  border-top-right-radius: 100%;
 }
 
 /* #red:hover {
@@ -127,6 +132,7 @@ span {
 #yellow {
   background-color: #770;
   border-color: #550;
+  border-bottom-left-radius: 100%;
 }
 
 /* #yellow:hover {
@@ -137,6 +143,7 @@ span {
 #blue {
   background-color: #007;
   border-color: #005;
+  border-bottom-right-radius: 100%;
 }
 
 /* #blue:hover {
