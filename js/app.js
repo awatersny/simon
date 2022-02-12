@@ -84,7 +84,7 @@ function comTurn() {
   setTimeout(() => {
     turn = 1;
     render();
-  }, playerWait);
+  }, playerWait+interval);
 }
 
 function inputSequence(evt){
@@ -179,7 +179,7 @@ function renderLightState(colorIdx, color1, color2) {
 }
 
 function blinkLight(color){
-  let interval = 250
+  let interval = 300
   if(color === "green"){
     let cVal = 0;
     renderLightState(cVal, "#0f0", "070");
