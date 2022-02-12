@@ -59,18 +59,26 @@ function comTurn() {
   if(turn !== -1) {
     return;
   }
-  playerWait += 1000;
+  let interval = 1000;
+  playerWait += interval;
   renderIdx = 0;
   render();
   comSequence.push(Math.floor(Math.random() * 4))
   // Com plays sequence
   const playSequence = setInterval(() => {
     console.log(comSequence[renderIdx]);
+
+    //Flash the light at the current index
+    blinkLight("green");
+    blinkLight("red");
+    blinkLight("yellow");
+    blinkLight("blue");
+
     renderIdx++;
     if(renderIdx === comSequence.length){
       clearInterval(playSequence);
     }
-  }, 1000);
+  }, interval);
 
   // Allow player to enter sequence.
   setTimeout(() => {
@@ -171,33 +179,34 @@ function renderLightState(colorIdx, color1, color2) {
 }
 
 function blinkLight(color){
+  let interval = 250
   if(color === "green"){
     let cVal = 0;
     renderLightState(cVal, "#0f0", "070");
     setTimeout(() => {
       renderLightState(cVal, "#070", "050");
-    }, 250);
+    }, interval);
 
   } else if(color === "red"){
     let cVal = 1;
     renderLightState(cVal, "#f00", "700");
     setTimeout(() => {
       renderLightState(cVal, "#700", "500");
-    }, 250);
+    }, interval);
 
   } else if(color === "yellow"){
     let cVal = 2;
     renderLightState(cVal, "#ff0", "770");
     setTimeout(() => {
       renderLightState(cVal, "#770", "550");
-    }, 250);
+    }, interval);
 
   } else if(color === "blue"){
     let cVal = 3;
     renderLightState(cVal, "#00f", "007");
     setTimeout(() => {
       renderLightState(cVal, "#007", "005");
-    }, 250);
+    }, interval);
 
   }
 }
