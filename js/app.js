@@ -165,6 +165,8 @@ function renderGameOver() {
 
 function renderAudio(color, duration) {
   const note = new Audio(`../audio/${color}.m4a`);
+  console.log(note.d);
+  note.duration = duration;
   note.play();
 }
 
@@ -227,4 +229,4 @@ function testVals(){
   console.log("plyr  : ", playerSequence);
 }
 
-// renderAudio("green");
+// renderAudio("green", 0);
