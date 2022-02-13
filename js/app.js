@@ -103,7 +103,6 @@ function inputSequence(evt){
    * blue: 3
    */
   if(playerSequence.length < comSequence.length) {
-    blinkLight(evt.target.id);
     if(evt.target.id === "green"){
       let cVal = 0;
       playerSequence.push(cVal);
@@ -118,11 +117,11 @@ function inputSequence(evt){
       playerSequence.push(cVal);
     }
   }
-  matchSequence();
+  matchSequence(evt);
 }
 
 // This function will allow player input and set turn to 0 if playerSequence doesn't match comSequence
-function matchSequence() {
+function matchSequence(evt) {
   // compare sequence arrays
   playerSequence.forEach((color, idx) => {
     if(comSequence[idx] !== color){
@@ -130,6 +129,7 @@ function matchSequence() {
       turn = 0;
     }
   });
+  blinkLight(evt.target.id);
   if (turn === 0){
     renderGameOver();
     return;
@@ -166,11 +166,10 @@ function renderGameOver() {
 function renderAudio(color, duration) {
   const note = new Audio(`../audio/${color}.m4a`);
   console.log(note.d);
-  note.duration = duration;
   note.play();
   setTimeout(() => {
     note.pause();
-  }, 300);
+  }, duration);
 }
 
 /**
@@ -193,7 +192,12 @@ function renderLightState(colorIdx, color1, color2) {
 
 function blinkLight(color){
   let interval = 300
-  renderAudio(color, interval);
+  if(!turn){
+    interval = 700
+    renderAudio("buzz", interval);
+  } else {
+    renderAudio(color, interval);
+  }
   if(color === "green"){
     let cVal = 0;
     renderLightState(cVal, "#0f0", "070");
@@ -221,7 +225,6 @@ function blinkLight(color){
     setTimeout(() => {
       renderLightState(cVal, "#007", "005");
     }, interval);
-
   }
 }
 
