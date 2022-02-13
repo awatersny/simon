@@ -168,6 +168,9 @@ function renderAudio(color, duration) {
   console.log(note.d);
   note.duration = duration;
   note.play();
+  setTimeout(() => {
+    note.pause();
+  }, 300);
 }
 
 /**
@@ -190,6 +193,7 @@ function renderLightState(colorIdx, color1, color2) {
 
 function blinkLight(color){
   let interval = 300
+  renderAudio(color, interval);
   if(color === "green"){
     let cVal = 0;
     renderLightState(cVal, "#0f0", "070");
@@ -228,5 +232,3 @@ function testVals(){
   console.log("cmptr : ", comSequence);
   console.log("plyr  : ", playerSequence);
 }
-
-// renderAudio("green", 0);
