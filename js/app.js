@@ -163,6 +163,11 @@ function renderGameOver() {
   statusMsg.textContent = `Game Over.`
 }
 
+function renderAudio(color, duration) {
+  const note = new Audio(`../audio/${color}.m4a`);
+  note.play();
+}
+
 /**
  * ON:
  * green: color1:#0f0  color2:#070
@@ -221,3 +226,5 @@ function testVals(){
   console.log("cmptr : ", comSequence);
   console.log("plyr  : ", playerSequence);
 }
+
+// renderAudio("green");
