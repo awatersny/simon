@@ -66,8 +66,6 @@ function comTurn() {
   comSequence.push(Math.floor(Math.random() * 4))
   // Com plays sequence
   const playSequence = setInterval(() => {
-    console.log(comSequence[renderIdx]);
-
     //Flash the light at the current index
     if(comSequence[renderIdx] === 0){
       blinkLight("green");
@@ -121,7 +119,6 @@ function inputSequence(evt){
     }
   }
   matchSequence();
-  console.log("turn", turn);
 }
 
 // This function will allow player input and set turn to 0 if playerSequence doesn't match comSequence
@@ -138,6 +135,7 @@ function matchSequence() {
     return;
   }
   if(playerSequence.length === comSequence.length){
+    testVals();
     turn = -1;
     score++;
     hiScore = score > hiScore ? score : hiScore;
@@ -222,5 +220,4 @@ init();
 function testVals(){
   console.log("cmptr : ", comSequence);
   console.log("plyr  : ", playerSequence);
-  console.log("turn  : ", turn);
 }
