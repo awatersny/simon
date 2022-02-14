@@ -184,14 +184,25 @@ span {
     height: 50rem;
   }
 
-  #board {
-    padding: 3.5rem 0 0 3.5rem;
-    grid-template-columns: 30rem 30rem;
-    grid-template-rows: 20rem 20rem;
+  #board-cover {
     background-color: #000;
-    height: 50rem;
-    width: 70rem;
-    gap: 3rem;
+    height: 20rem;
+    width: 27.2rem;
+    border-radius: 50%;
+    z-index: 2;
+    position: relative;
+    left: 18.5rem;
+    bottom: 36rem;
+  }
+
+  #board {
+    padding: 1rem 0 0 2rem;
+    grid-template-columns: 31rem 31rem;
+    grid-template-rows: 22rem 22rem;
+    background-color: #000;
+    height: 100%;
+    width: 68rem;
+    gap: 2rem;
     border-radius: 50%;
   }
 }
