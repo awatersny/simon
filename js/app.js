@@ -52,7 +52,6 @@ function init(){
   playerSequence = [];
   render();
   turn = -1;
-  testVals();
 }
 
 // First sequence should start when the player presses a start button.
@@ -137,7 +136,6 @@ function matchSequence(evt) {
     return;
   }
   if(playerSequence.length === comSequence.length){
-    testVals();
     turn = -1;
     score++;
     hiScore = score > hiScore ? score : hiScore;
@@ -180,8 +178,7 @@ function renderGameOver() {
 }
 
 function renderAudio(color, duration) {
-  const note = new Audio(`../audio/${color}.m4a`);
-  console.log(note.d);
+  const note = new Audio(`../audio/${color}.wav`);
   note.play();
   setTimeout(() => {
     note.pause();
@@ -232,9 +229,3 @@ function blinkLight(color){
 }
 
 init();
-
-// Temporary test functions to be deleted.
-function testVals(){
-  console.log("cmptr : ", comSequence);
-  console.log("plyr  : ", playerSequence);
-}
