@@ -142,7 +142,9 @@ function matchSequence(evt) {
     hiScore = score > hiScore ? score : hiScore;
     // Reset player sequence
     playerSequence = [];
-    comTurn();
+    setTimeout(()=>{
+      comTurn();
+    }, 500);
   }
 }
 
