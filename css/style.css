@@ -48,7 +48,7 @@ span {
   align-items: center;
   justify-content: center;
   font-family: serif;
-  font-size: 15rem;
+  font-size: 20vw;
   margin: 0;
 }
 
@@ -102,14 +102,14 @@ span {
 }
 
 #board {
-  padding: 3.5rem 0 0 3.5rem;
   display: grid;
-  grid-template-columns: 20rem 20rem;
-  grid-template-rows: 20rem 20rem;
+  padding: 3.5vw 0 0 3.5vw;
+  grid-template-columns: 30vw 30vw;
+  grid-template-rows: 30vw 30vw;
   background-color: #000;
-  height: 50rem;
-  width: 50rem;
-  gap: 3rem;
+  height: 70vw;
+  width: 70vw;
+  gap: 3vw;
   border-radius: 50%;
 }
 
@@ -167,3 +167,18 @@ span {
   border-color: #007;
 } */
 
+@media only screen and (min-width: 700px) {
+  #title {
+    font-size: 15rem;
+  }
+  #board {
+    padding: 3.5rem 0 0 3.5rem;
+    grid-template-columns: 20rem 20rem;
+    grid-template-rows: 20rem 20rem;
+    background-color: #000;
+    height: 50rem;
+    width: 50rem;
+    gap: 3rem;
+    border-radius: 50%;
+  }
+}
