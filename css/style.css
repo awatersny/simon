@@ -167,3 +167,20 @@ span {
   border-color: #007;
 } */
 
+@media only screen and (max-width: 700px) {
+  #title {
+    font-size: 20vw;
+  }
+  #board {
+    padding: 3.5vw 0 0 3.5vw;
+    grid-template-columns: 30vw 30vw;
+    grid-template-rows: 30vw 30vw;
+    background-color: #000;
+    height: 70vw;
+    width: 70vw;
+    /* max-height: 50vh;
+    max-width: 50vh; */
+    gap: 3vw;
+    border-radius: 50%;
+  }
+}
