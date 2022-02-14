@@ -11,6 +11,7 @@ let playerSequence = [];
 let score = 0;
 // High Score: Increments when score is greater than or equal to it.
 let hiScore = 5;
+let prevHiScore = hiScore; 
 // Turn: -1 for computer and 1 for player. 0 if game is not in session
 let turn = 0;
 // Time it takes for computer to play sequence
@@ -43,6 +44,7 @@ resetBtn.addEventListener("click", init);
 // The player should be able to reset the game at any time.
 function init(){
   score = 0;
+  prevHiScore = hiScore;
   turn = 0;
   playerWait = 0;
   renderIdx = 0;
@@ -160,7 +162,21 @@ function render() {
 }
 
 function renderGameOver() {
-  statusMsg.textContent = `Game Over.`
+  let wait = 2000;
+  if(score > prevHiScore){
+    wait = 4000;
+    statusMsg.textContent = `Congratulations!!!`
+    confetti.start(1000);
+    setTimeout(() => {
+      statusMsg.textContent = `New High Score!!!`
+    }, 2000);
+  } else {
+    statusMsg.textContent = `Game Over.`
+  }
+  resetBtn.setAttribute("hidden", true);
+  setTimeout(() => {
+    init();
+  }, wait);
 }
 
 function renderAudio(color, duration) {
