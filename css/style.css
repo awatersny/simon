@@ -41,10 +41,6 @@ span {
   font-size: 20px;
 }
 
-/* .board-button {
-  margin: 1rem 0 0 1rem;
-} */
-
 #title {
   display: flex;
   align-items: center;
@@ -132,21 +128,11 @@ span {
   border-top-left-radius: 100%;
 }
 
-/* #green:hover {
-  background-color: #0f0;
-  border-color: #070;
-} */
-
 #red {
   background-color: #700;
   border-color: #500;
   border-top-right-radius: 100%;
 }
-
-/* #red:hover {
-  background-color: #f00;
-  border-color: #700;
-} */
 
 #yellow {
   background-color: #770;
@@ -154,21 +140,11 @@ span {
   border-bottom-left-radius: 100%;
 }
 
-/* #yellow:hover {
-  background-color: #ff0;
-  border-color: #770;
-} */
-
 #blue {
   background-color: #007;
   border-color: #005;
   border-bottom-right-radius: 100%;
 }
-
-/* #blue:hover {
-  background-color: #00f;
-  border-color: #007;
-} */
 
 @media only screen and (min-width: 700px) {
   #title {
