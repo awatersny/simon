@@ -10,7 +10,7 @@ let playerSequence = [];
 // Score: Increments each time the two arrays are congruent.
 let score = 0;
 // High Score: Increments when score is greater than or equal to it.
-let hiScore = 16;
+let hiScore = 5;
 // Turn: -1 for computer and 1 for player. 0 if game is not in session
 let turn = 0;
 // Time it takes for computer to play sequence
@@ -83,8 +83,8 @@ function comTurn() {
     }
   }, interval);
 
-  // Allow player to enter sequence.
   setTimeout(() => {
+    // Allow player to enter sequence.
     turn = 1;
     render();
   }, playerWait+interval);
@@ -172,19 +172,6 @@ function renderAudio(color, duration) {
   }, duration);
 }
 
-/**
- * ON:
- * green: color1:#0f0  color2:#070
- * red": color1:#f00  color2:#700
- * yellow: color1:#ff0  color2:#770
- * blue: color1:#00f  color2:#007
- * 
- * OFF:
- * green: color1:#070  color2:#050
- * red": color1:#700  color2:#500
- * yellow: color1:#770  color2:#550
- * blue: color1:#007  color2:#005
- */
 function renderLightState(colorIdx, color1, color2) {
   colorBtns[colorIdx].style.backgroundColor = color1;
   colorBtns[colorIdx].style.borderColor = color2;
