@@ -60,10 +60,11 @@ function comTurn() {
   if(turn !== -1) {
     return;
   }
-  let interval = 800;
+  let interval = 500;
   playerWait += interval;
   renderIdx = 0;
   render();
+  resetBtn.setAttribute("hidden", true);
   comSequence.push(Math.floor(Math.random() * 4))
   // Com plays sequence
   const playSequence = setInterval(() => {
