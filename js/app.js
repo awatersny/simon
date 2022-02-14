@@ -10,7 +10,7 @@ let playerSequence = [];
 // Score: Increments each time the two arrays are congruent.
 let score = 0;
 // High Score: Increments when score is greater than or equal to it.
-let hiScore = 0;
+let hiScore = 16;
 // Turn: -1 for computer and 1 for player. 0 if game is not in session
 let turn = 0;
 // Time it takes for computer to play sequence

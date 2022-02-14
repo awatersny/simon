@@ -58,11 +58,19 @@ span {
 }
 
 #s{
-  color: #0d0;
+  color: #070;
+}
+
+#s:hover{
+  color: #0a0;
 }
 
 #i{
-  color: #f00;
+  color: #700;
+}
+
+#i:hover{
+  color: #a00;
 }
 
 #m{
@@ -70,11 +78,19 @@ span {
 }
 
 #o{
-  color: #ff0;
+  color: #770;
+}
+
+#o:hover{
+  color: #aa0;
 }
 
 #n{
-  color: #00f;
+  color: #007;
+}
+
+#n:hover{
+  color: #00a;
 }
 
 #board-container {
