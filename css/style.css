@@ -185,7 +185,8 @@ span {
   }
 
   #board-cover {
-    background-color: #000;
+    background-color: #111;
+    border: solid #000 2rem;
     height: 20rem;
     width: 27.2rem;
     border-radius: 50%;
