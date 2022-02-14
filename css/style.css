@@ -120,7 +120,9 @@ span {
 }
 
 #start-reset > button{
-  width: 10%;
+  width: 10rem;
+  padding: 0.5rem 0;
+  margin-bottom: 2rem;
 }
 
 #green {
