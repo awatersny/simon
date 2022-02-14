@@ -181,7 +181,7 @@ function renderGameOver() {
 }
 
 function renderAudio(color, duration) {
-  const note = new Audio(`./audio/${color}.mp3`);
+  const note = new Audio(`./audio/${color}.aiff`);
   note.play();
   setTimeout(() => {
     note.pause();
