@@ -37,7 +37,7 @@ const scoreDisplay = document.getElementById("score");
 /*------------------------------------Event Listeners----------------------------------------*/
 board.addEventListener("click", inputSequence); //Note: if evt.target.id === board, nothing should happen.
 startBtn.addEventListener("click", comTurn);
-resetBtn.addEventListener("click", init);
+resetBtn.addEventListener("click", reset);
 
 /*---------------------------------------Functions-------------------------------------------*/
 // Initial state
@@ -52,6 +52,14 @@ function init(){
   playerSequence = [];
   render();
   turn = -1;
+}
+
+function reset() {
+  if (score > prevHiScore){
+    renderGameOver();
+  } else {
+    init();
+  }
 }
 
 // First sequence should start when the player presses a start button.
