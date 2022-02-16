@@ -202,7 +202,7 @@ function renderLightState(colorIdx, color1, color2) {
 }
 
 function blinkLight(color){
-  let interval = 400
+  let interval = 300
   if(!turn){
     interval = 700
     renderAudio("buzz", interval);
