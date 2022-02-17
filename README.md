@@ -15,10 +15,13 @@ You can play [*here*](https://awatersny.github.io/simon/).
 
 ---
 ## Screenshots:
+
+### Desktop Display
 ![Desktop Display](./screenshots/Desktop_Display.png)
 
 ---
 
+### Mobile Display
 <image src="./screenshots/Mobile-Display.jpg" width = "250"/>
 
 ---
