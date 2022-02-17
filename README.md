@@ -24,7 +24,9 @@ You can play [*here*](https://awatersny.github.io/simon/).
 ---
 
 ### Mobile Display
-<image src="./screenshots/Mobile-Display.jpg" width="200"/>
+<image src="./screenshots/Mobile-Display.jpg" width="180"/>
+<image src="./screenshots/Comp-Turn.jpg" width="180"/>
+<image src="./screenshots/Congrats.jpg" width="180"/>
 
 ---
 
