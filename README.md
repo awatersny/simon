@@ -48,3 +48,4 @@ You can play [*here*](https://awatersny.github.io/simon/).
 ## Credits
 
 - Skill badges found at https://dev.to/envoy_/150-badges-for-github-pnk
+- Confetti JS from https://github.com/mathusummut/
