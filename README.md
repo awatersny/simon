@@ -11,7 +11,7 @@ Otherwise, they will just have to try again.
 
 ## Getting Started:
 
-You can play <a href="https://awatersny.github.io/simon/" target="_blank">*here*</a>.
+You can play [*here*](https://awatersny.github.io/simon/).
 
 ---
 ## Screenshots:
@@ -22,15 +22,18 @@ You can play <a href="https://awatersny.github.io/simon/" target="_blank">*here*
 ---
 
 ### Mobile Display
-<image src="./screenshots/Mobile-Display.jpg" width = "200"/>
+<image src="./screenshots/Mobile-Display.jpg" width="200"/>
 
 ---
 
 ## Technologies Used:
 
-- ![HTML5](https://img.shields.io/badge/-HTML5-red)
-- ![CSS3](https://img.shields.io/badge/-CSS3-blue)
-- ![Javascript](https://img.shields.io/badge/JS-Javascript-yellow)
+![HTML5](	https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+
+![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
 ---
 ## Planned Enhancements:
 
