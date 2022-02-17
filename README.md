@@ -11,7 +11,7 @@ Otherwise, they will just have to try again.
 
 ## Getting Started:
 
-You can play [*here*](https://awatersny.github.io/simon/).
+You can play <a href="https://awatersny.github.io/simon/" target="_blank">*here*</a>.
 
 ---
 ## Screenshots:
