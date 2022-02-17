@@ -22,15 +22,15 @@ You can play [*here*](https://awatersny.github.io/simon/).
 ---
 
 ### Mobile Display
-<image src="./screenshots/Mobile-Display.jpg" width = "250"/>
+<image src="./screenshots/Mobile-Display.jpg" width = "200"/>
 
 ---
 
 ## Technologies Used:
 
-- HTML
-- CSS
-- Javascript
+- ![HTML5](https://img.shields.io/badge/-HTML5-red)
+- ![CSS3](https://img.shields.io/badge/-CSS3-blue)
+- ![Javascript](https://img.shields.io/badge/JS-Javascript-yellow)
 ---
 ## Planned Enhancements:
 
