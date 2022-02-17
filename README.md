@@ -42,3 +42,9 @@ You can play [*here*](https://awatersny.github.io/simon/).
 - Keyboard functionality
 - Mobile landscape styling
 - iOS Safari sound support
+  
+---
+
+## Credits
+
+- Skill badges found at https://dev.to/envoy_/150-badges-for-github-pnk
