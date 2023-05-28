@@ -160,7 +160,7 @@ function render() {
   if(turn) {
     startBtn.setAttribute("hidden", true);
     resetBtn.removeAttribute("hidden");
-    statusMsg.textContent = turn === 1 ? `Your turn` : `Watch carefully`
+    statusMsg.textContent = turn === 1 ? `Your turn` : `Repeat this sequence`
   } else {
     resetBtn.setAttribute("hidden", true);
     startBtn.removeAttribute("hidden");
